@@ -26,10 +26,16 @@ paddle_b.shape('square')
 paddle_b.color('white')
 paddle_b.shapesize(stretch_wid=5, stretch_len=1) 
 paddle_b.penup() 
-paddle_b.goto(350,0) 
+paddle_b.goto(350,0) # Modify specified position to be on the right side
 
 
 # Ball
+ball = turtle.Turtle() 
+ball.speed(0)
+ball.shape('square')
+ball.color('white')
+ball.penup() 
+ball.goto(0,0) # Modify specified position to be on the right side
 
 
 # Main game loop
