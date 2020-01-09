@@ -37,6 +37,32 @@ ball.color('white')
 ball.penup() 
 ball.goto(0,0) # Modify specified position to be on the right side
 
+# Function
+def paddle_a_up():
+    y = paddle_a.ycor()
+    y += 20
+    paddle_a.sety(y)
+
+def paddle_a_down():
+    y = paddle_a.ycor()
+    y -= 20
+    paddle_a.sety(y)
+def paddle_b_up():
+    y = paddle_b.ycor()
+    y += 20
+    paddle_b.sety(y)
+
+def paddle_b_down():
+    y = paddle_b.ycor()
+    y -= 20
+    paddle_b.sety(y)
+
+# Keyboard binding
+wn.listen() # Listen for keyboard input
+wn.onkeypress(paddle_a_up, 'w') # When user presses w, call paddle_a_up
+wn.onkeypress(paddle_a_down, 's') # When user presses s, call paddle_a_down
+wn.onkeypress(paddle_b_up, 'Up')
+wn.onkeypress(paddle_b_down, 'Down')
 
 # Main game loop
 while True:
