@@ -4,7 +4,7 @@ import turtle
 # Create window instance
 wn = turtle.Screen()
 wn.title('Pong by Pavan Sabnis') # window title
-wn.bgcolor("black") # background color
+wn.bgcolor("purple") # background color
 wn.setup(width=800, height=600) # window size
 wn.tracer(0) # stops window from updating for faster performace
 
@@ -36,8 +36,8 @@ ball.shape('square')
 ball.color('white')
 ball.penup() 
 ball.goto(0,0) # Modify specified position to be on the right side
-ball.dx = 2 # These are the ball position increment speeds for its movement
-ball.dy = 2
+ball.dx = 4 # These are the ball position increment speeds for its movement
+ball.dy = 4
 
 # Function
 def paddle_a_up():
@@ -45,7 +45,7 @@ def paddle_a_up():
     if y > 260:
         y = -240
     else:
-        y += 20
+        y += 30
     # print(y)
     paddle_a.sety(y)
 
@@ -54,7 +54,7 @@ def paddle_a_down():
     if y < -240:
         y = 260
     else:
-        y -= 20
+        y -= 30
     # print(y)
     paddle_a.sety(y)
 def paddle_b_up():
@@ -62,7 +62,7 @@ def paddle_b_up():
     if y > 260:
         y = -240
     else:
-        y += 20
+        y += 30
     paddle_b.sety(y)
 
 def paddle_b_down():
@@ -70,7 +70,7 @@ def paddle_b_down():
     if y < -240:
         y = 260
     else:
-        y -= 20
+        y -= 30
     paddle_b.sety(y)
 
 # Keyboard binding
@@ -106,3 +106,12 @@ while True:
         ball.setx(-390)
         ball.dx *= -1
 
+    # Ball and paddle collisions:
+    # Paddle b:
+    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
+        ball.setx(340) # if ball ends up behind paddle, put it in front right away to prevent getting stuck
+        ball.dx *= -1
+    # Paddle a:
+    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40):
+        ball.setx(-340) # if ball ends up behind paddle, put it in front right away to prevent getting stuck
+        ball.dx *= -1
