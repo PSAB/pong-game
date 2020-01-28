@@ -4,7 +4,7 @@ import turtle
 # Create window instance
 wn = turtle.Screen()
 wn.title('Pong by Pavan Sabnis') # window title
-wn.bgcolor("purple") # background color
+wn.bgcolor("black") # background color
 wn.setup(width=800, height=600) # window size
 wn.tracer(0) # stops window from updating for faster performace
 
@@ -36,8 +36,8 @@ ball.shape('square')
 ball.color('white')
 ball.penup() 
 ball.goto(0,0) # Modify specified position to be on the right side
-ball.dx = 4 # These are the ball position increment speeds for its movement
-ball.dy = 4
+ball.dx = 3.5 # These are the ball position increment speeds for its movement
+ball.dy = 3.5
 
 # Function
 def paddle_a_up():
